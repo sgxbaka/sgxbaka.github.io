@@ -15,7 +15,6 @@
   <meta property="og:url" content="https://sgxbaka.github.io" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="SG Baka — Links" />
-  <meta name="twitter:description" content="Find all SG Baka's social links in one place." />
   <meta name="twitter:site" content="@SgxBaka" />
   <link rel="canonical" href="https://sgxbaka.github.io" />
 
@@ -86,7 +85,6 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ── Theme Toggle ── */
     .theme-toggle {
       position: fixed;
       top: 18px; right: 18px;
@@ -100,44 +98,48 @@
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem;
-      transition: background var(--transition), border-color var(--transition), transform 0.3s;
+      transition: background var(--transition), border-color var(--transition), transform 0.25s;
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
     .theme-toggle:hover { transform: scale(1.1); }
     .theme-toggle:active { transform: scale(0.93); }
 
-    /* ── Container ── */
     .container {
       position: relative; z-index: 1;
       width: 100%; max-width: 480px;
       display: flex; flex-direction: column; align-items: center;
     }
 
-    /* ── Avatar ── */
+    /* ── Avatar with photo ── */
     .avatar-wrap {
       position: relative;
       margin-bottom: 24px;
       animation: fadeUp 0.6s ease both;
-    }
-
-    .avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #c8f04a 0%, #7c3aed 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem; font-weight: 800;
-      color: #0a0a0f;
-      position: relative; z-index: 1;
+      width: 98px; height: 98px;
     }
 
     .avatar-ring {
-      position: absolute; inset: -4px;
+      position: absolute; inset: 0;
       border-radius: 50%;
       background: conic-gradient(from 0deg, #c8f04a, #7c3aed, #c8f04a);
       animation: spin 4s linear infinite;
       z-index: 0;
+    }
+
+    .avatar-inner {
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .avatar-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     /* ── Header ── */
@@ -169,7 +171,6 @@
       margin: 0 6px; vertical-align: middle; opacity: 0.6;
     }
 
-    /* ── Links ── */
     .links {
       width: 100%; display: flex;
       flex-direction: column; gap: 12px;
@@ -207,28 +208,28 @@
     .link-card:hover::before { opacity: 1; }
     .link-card:active { transform: translateY(0) scale(0.99); }
 
-    .link-card.insta:hover     { border-color: rgba(228,64,95,0.45); }
-    .link-card.insta::before   { background: radial-gradient(circle at left, rgba(228,64,95,0.08), transparent 70%); }
+    .link-card.insta:hover     { border-color: rgba(228,64,95,0.4); }
+    .link-card.insta::before   { background: radial-gradient(circle at left, rgba(228,64,95,0.07), transparent 70%); }
     .link-card.xtwitter:hover  { border-color: rgba(255,255,255,0.25); }
     .link-card.xtwitter::before { background: radial-gradient(circle at left, rgba(255,255,255,0.05), transparent 70%); }
-    .link-card.telegram:hover  { border-color: rgba(41,182,246,0.45); }
-    .link-card.telegram::before { background: radial-gradient(circle at left, rgba(41,182,246,0.08), transparent 70%); }
-    .link-card.facebook:hover  { border-color: rgba(66,103,178,0.5); }
-    .link-card.facebook::before { background: radial-gradient(circle at left, rgba(66,103,178,0.08), transparent 70%); }
-    .link-card.reddit:hover    { border-color: rgba(255,69,0,0.45); }
-    .link-card.reddit::before  { background: radial-gradient(circle at left, rgba(255,69,0,0.08), transparent 70%); }
-    .link-card.spotify:hover   { border-color: rgba(30,215,96,0.45); }
-    .link-card.spotify::before { background: radial-gradient(circle at left, rgba(30,215,96,0.08), transparent 70%); }
-    .link-card.discord:hover   { border-color: rgba(88,101,242,0.5); }
-    .link-card.discord::before { background: radial-gradient(circle at left, rgba(88,101,242,0.09), transparent 70%); }
+    .link-card.telegram:hover  { border-color: rgba(41,182,246,0.4); }
+    .link-card.telegram::before { background: radial-gradient(circle at left, rgba(41,182,246,0.07), transparent 70%); }
+    .link-card.facebook:hover  { border-color: rgba(66,103,178,0.45); }
+    .link-card.facebook::before { background: radial-gradient(circle at left, rgba(66,103,178,0.07), transparent 70%); }
+    .link-card.reddit:hover    { border-color: rgba(255,69,0,0.4); }
+    .link-card.reddit::before  { background: radial-gradient(circle at left, rgba(255,69,0,0.07), transparent 70%); }
+    .link-card.spotify:hover   { border-color: rgba(30,215,96,0.4); }
+    .link-card.spotify::before { background: radial-gradient(circle at left, rgba(30,215,96,0.07), transparent 70%); }
+    .link-card.discord:hover   { border-color: rgba(88,101,242,0.45); }
+    .link-card.discord::before { background: radial-gradient(circle at left, rgba(88,101,242,0.08), transparent 70%); }
 
     .icon-wrap {
       width: 44px; height: 44px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: transform 0.25s;
+      flex-shrink: 0; transition: transform 0.2s;
     }
 
-    .link-card:hover .icon-wrap { transform: scale(1.1); }
+    .link-card:hover .icon-wrap { transform: scale(1.08); }
 
     .insta .icon-wrap    { background: rgba(228,64,95,0.12); }
     .xtwitter .icon-wrap { background: rgba(255,255,255,0.08); }
@@ -241,7 +242,6 @@
     [data-theme="light"] .xtwitter .icon-wrap { background: rgba(0,0,0,0.07); }
 
     .icon-wrap svg { width: 22px; height: 22px; }
-
     .link-info { flex: 1; }
 
     .link-label {
@@ -251,17 +251,19 @@
     }
 
     .link-sub { font-size: 0.78rem; color: var(--muted); font-weight: 400; transition: color var(--transition); }
-
     .arrow { color: var(--muted); transition: transform 0.2s, color 0.2s; flex-shrink: 0; }
     .link-card:hover .arrow { transform: translateX(4px); color: var(--text); }
 
-    /* ── Footer ── */
     .footer {
       margin-top: 40px; text-align: center;
       animation: fadeUp 0.5s 0.75s ease both;
     }
 
-    .footer p { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; opacity: 0.5; transition: color var(--transition); }
+    .footer p {
+      font-size: 0.75rem; color: var(--muted);
+      letter-spacing: 0.04em; opacity: 0.5;
+      transition: color var(--transition);
+    }
 
     .footer .accent-dot { color: var(--accent); font-size: 1rem; line-height: 0; vertical-align: middle; }
 
@@ -279,167 +281,11 @@
 </head>
 <body>
 
-<!-- Theme toggle -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle theme">☀️</button>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">☀️</button>
 
 <main class="container" role="main">
 
   <div class="avatar-wrap">
     <div class="avatar-ring"></div>
-    <div class="avatar">SG</div>
-  </div>
-
-  <div class="header">
-    <h1 class="name">SG <span>Baka</span></h1>
-    <p class="bio">Creator &amp; Digital Enthusiast<span class="dot"></span>Sharing ideas across the web</p>
-  </div>
-
-  <nav class="links" aria-label="Social media links">
-
-    <a href="https://www.instagram.com/sg.baka?igsh=MWxkd2FvNjJqcjllNQ==" target="_blank" rel="noopener noreferrer" class="link-card insta" aria-label="Follow on Instagram">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <defs>
-            <linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#f09433"/>
-              <stop offset="25%" stop-color="#e6683c"/>
-              <stop offset="50%" stop-color="#dc2743"/>
-              <stop offset="75%" stop-color="#cc2366"/>
-              <stop offset="100%" stop-color="#bc1888"/>
-            </linearGradient>
-          </defs>
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig)" stroke-width="1.8" fill="none"/>
-          <circle cx="12" cy="12" r="4.5" stroke="url(#ig)" stroke-width="1.8" fill="none"/>
-          <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig)"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Instagram</div>
-        <div class="link-sub">@sg.baka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://x.com/SgxBaka" target="_blank" rel="noopener noreferrer" class="link-card xtwitter" aria-label="Follow on X">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">X (Twitter)</div>
-        <div class="link-sub">@SgxBaka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://t.me/sg_baka" target="_blank" rel="noopener noreferrer" class="link-card telegram" aria-label="Message on Telegram">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="#29b6f6" stroke-width="1.8" fill="none"/>
-          <path d="M5.5 11.5l12-4.5-4.5 12-2.5-4.5-5-3z" stroke="#29b6f6" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Telegram</div>
-        <div class="link-sub">@sg_baka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://www.facebook.com/sgxleo" target="_blank" rel="noopener noreferrer" class="link-card facebook" aria-label="Connect on Facebook">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="#4267B2" stroke-width="1.8" fill="none"/>
-          <path d="M13.5 8H12a1 1 0 00-1 1v2H9v2.5h2V19h2.5v-5.5H15l.5-2.5h-2V9.5a.5.5 0 01.5-.5h1.5V8z" stroke="#4267B2" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Facebook</div>
-        <div class="link-sub">@sgxleo</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://www.reddit.com/user/SgBaka/" target="_blank" rel="noopener noreferrer" class="link-card reddit" aria-label="Follow on Reddit">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="#FF4500" stroke-width="1.8" fill="none"/>
-          <circle cx="9" cy="13" r="1.2" fill="#FF4500"/>
-          <circle cx="15" cy="13" r="1.2" fill="#FF4500"/>
-          <path d="M9 16c.8.8 2 1.2 3 1.2s2.2-.4 3-1.2" stroke="#FF4500" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <path d="M12 9V7m0 0c0-1 1.5-1 1.5 0" stroke="#FF4500" stroke-width="1.4" stroke-linecap="round"/>
-          <path d="M16.5 11a1.5 1.5 0 011.5 1.5" stroke="#FF4500" stroke-width="1.4" stroke-linecap="round"/>
-          <path d="M7.5 11a1.5 1.5 0 00-1.5 1.5" stroke="#FF4500" stroke-width="1.4" stroke-linecap="round"/>
-          <circle cx="16" cy="7.5" r="1" fill="#FF4500"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Reddit</div>
-        <div class="link-sub">u/SgBaka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://open.spotify.com/user/31g6ef4ntjgz6i52rf7nhxzj4o34" target="_blank" rel="noopener noreferrer" class="link-card spotify" aria-label="Listen on Spotify">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="#1ED760" stroke-width="1.8" fill="none"/>
-          <path d="M7.5 14.5c2.5-1 5.5-1 8 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M6.5 12c3-1.2 6.5-1.2 10 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M7.5 9.5c2.8-.8 5.7-.8 8.5 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Spotify</div>
-        <div class="link-sub">Listen to my playlists</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <a href="https://discord.gg/pxJsyrBrhR" target="_blank" rel="noopener noreferrer" class="link-card discord" aria-label="Join Discord server">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963a.074.074 0 00-.041-.104 13.2 13.2 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z" fill="#5865F2"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Discord</div>
-        <div class="link-sub">Join my server</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-  </nav>
-
-  <footer class="footer">
-    <p>Made by <span class="accent-dot">&#9679;</span> &copy; 2026 SG Baka</p>
-  </footer>
-
-</main>
-
-<script>
-  const toggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-
-  const saved = localStorage.getItem('sgbaka-theme') || 'dark';
-  html.setAttribute('data-theme', saved);
-  toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
-
-  toggle.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    toggle.textContent = next === 'dark' ? '☀️' : '🌙';
-    localStorage.setItem('sgbaka-theme', next);
-    toggle.style.transform = 'scale(0.8) rotate(180deg)';
-    setTimeout(() => { toggle.style.transform = ''; }, 300);
-  });
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "SG Baka",
-  "description": "Creator & Digital Enthusiast — sharing ideas across the web",
-  
+    <div class="avatar-inner">
+      <img src="data:image/jpeg;base64,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
