@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO Meta Tags -->
-  <title> SG Baka — Links</title>
+  <title>SG Baka — Links</title>
   <meta name="description" content="Find all my social links in one place — Instagram, Telegram, Facebook, and Spotify." />
   <meta name="keywords" content="links, social media, instagram, telegram, facebook, spotify, linktree alternative" />
   <meta name="author" content="sgxbaka" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Social Preview -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="sg baka — Links" />
+  <meta property="og:title" content="SG Baka — Links" />
   <meta property="og:description" content="Find all my social links in one place." />
   <meta property="og:url" content="https://yourwebsite.com" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Your Name — Links" />
+  <meta name="twitter:title" content="SG Baka — Links" />
   <meta name="twitter:description" content="Find all my social links in one place." />
 
   <!-- Canonical -->
@@ -30,435 +30,173 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <style>
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
-    :root {
-      --bg: #0a0a0f;
-      --surface: #111118;
-      --border: rgba(255,255,255,0.06);
-      --text: #f0f0f5;
-      --muted: rgba(240,240,245,0.45);
-      --accent: #c8f04a;
-      --accent-dim: rgba(200,240,74,0.12);
-      --radius: 20px;
-      --card-bg: rgba(255,255,255,0.03);
-      --card-hover: rgba(255,255,255,0.06);
-    }
+:root{
+--bg:#0a0a0f;
+--surface:#111118;
+--border:rgba(255,255,255,0.06);
+--text:#f0f0f5;
+--muted:rgba(240,240,245,0.45);
+--accent:#c8f04a;
+--radius:20px;
+--card-bg:rgba(255,255,255,0.03);
+--card-hover:rgba(255,255,255,0.06);
+}
 
-    html { scroll-behavior: smooth; }
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'DM Sans',sans-serif;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:24px 16px;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 16px;
-      overflow-x: hidden;
-    }
+.container{
+width:100%;
+max-width:480px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
-    /* Ambient background glow */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -30%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(200,240,74,0.07) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
+.avatar-wrap{margin-bottom:24px;}
 
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -20%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(120,80,255,0.06) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
+.avatar{
+width:90px;height:90px;border-radius:50%;
+background:linear-gradient(135deg,#c8f04a,#7c3aed);
+display:flex;align-items:center;justify-content:center;
+font-family:'Syne';font-size:2rem;font-weight:800;color:#0a0a0f;
+}
 
-    .container {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 480px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
+.header{text-align:center;margin-bottom:36px;}
 
-    /* ── Avatar ── */
-    .avatar-wrap {
-      position: relative;
-      margin-bottom: 24px;
-      animation: fadeUp 0.6s ease both;
-    }
+.name{
+font-family:'Syne';
+font-size:2rem;
+font-weight:800;
+margin-bottom:8px;
+}
 
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #c8f04a 0%, #7c3aed 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      color: #0a0a0f;
-      letter-spacing: -1px;
-      position: relative;
-      z-index: 1;
-    }
+.name span{color:var(--accent);}
 
-    .avatar-ring {
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #c8f04a, #7c3aed, #c8f04a);
-      animation: spin 4s linear infinite;
-      z-index: 0;
-    }
+.bio{
+font-size:.9rem;
+color:var(--muted);
+max-width:300px;
+margin:auto;
+}
 
-    .avatar-ring-mask {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      z-index: 0;
-    }
+.links{
+width:100%;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
 
-    /* ── Header ── */
-    .header {
-      text-align: center;
-      margin-bottom: 36px;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
+.link-card{
+display:flex;
+align-items:center;
+gap:16px;
+padding:18px 22px;
+background:var(--card-bg);
+border:1px solid var(--border);
+border-radius:var(--radius);
+text-decoration:none;
+color:var(--text);
+transition:.25s;
+}
 
-    .name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.7rem, 5vw, 2.1rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
+.link-card:hover{
+background:var(--card-hover);
+transform:translateY(-2px);
+}
 
-    .name span {
-      color: var(--accent);
-    }
+.icon-wrap{
+width:44px;height:44px;border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+}
 
-    .bio {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 400;
-      line-height: 1.6;
-      max-width: 300px;
-      margin: 0 auto;
-    }
+.link-info{flex:1;}
 
-    .dot {
-      display: inline-block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin: 0 6px;
-      vertical-align: middle;
-      opacity: 0.6;
-    }
+.link-label{
+font-family:'Syne';
+font-size:.95rem;
+font-weight:700;
+}
 
-    /* ── Links ── */
-    .links {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.link-sub{
+font-size:.78rem;
+color:var(--muted);
+}
 
-    .link-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 22px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text);
-      position: relative;
-      overflow: hidden;
-      transition: background 0.25s, border-color 0.25s, transform 0.2s;
-      cursor: pointer;
-      animation: fadeUp 0.5s ease both;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .link-card:nth-child(1) { animation-delay: 0.2s; }
-    .link-card:nth-child(2) { animation-delay: 0.28s; }
-    .link-card:nth-child(3) { animation-delay: 0.36s; }
-    .link-card:nth-child(4) { animation-delay: 0.44s; }
-
-    .link-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.3s;
-      border-radius: inherit;
-    }
-
-    .link-card:hover {
-      background: var(--card-hover);
-      transform: translateY(-2px);
-    }
-
-    .link-card:hover::before { opacity: 1; }
-    .link-card:active { transform: translateY(0) scale(0.99); }
-
-    /* Per-brand accent colors on hover */
-    .link-card.insta:hover { border-color: rgba(228,64,95,0.35); }
-    .link-card.insta::before { background: radial-gradient(circle at left, rgba(228,64,95,0.07), transparent 70%); }
-
-    .link-card.telegram:hover { border-color: rgba(41,182,246,0.35); }
-    .link-card.telegram::before { background: radial-gradient(circle at left, rgba(41,182,246,0.07), transparent 70%); }
-
-    .link-card.facebook:hover { border-color: rgba(66,103,178,0.4); }
-    .link-card.facebook::before { background: radial-gradient(circle at left, rgba(66,103,178,0.07), transparent 70%); }
-
-    .link-card.spotify:hover { border-color: rgba(30,215,96,0.35); }
-    .link-card.spotify::before { background: radial-gradient(circle at left, rgba(30,215,96,0.07), transparent 70%); }
-
-    .icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-
-    .link-card:hover .icon-wrap { transform: scale(1.08); }
-
-    .insta .icon-wrap { background: rgba(228,64,95,0.12); }
-    .telegram .icon-wrap { background: rgba(41,182,246,0.12); }
-    .facebook .icon-wrap { background: rgba(66,103,178,0.12); }
-    .spotify .icon-wrap { background: rgba(30,215,96,0.12); }
-
-    .icon-wrap svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .link-info {
-      flex: 1;
-    }
-
-    .link-label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1;
-      margin-bottom: 3px;
-    }
-
-    .link-sub {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .arrow {
-      color: var(--muted);
-      transition: transform 0.2s, color 0.2s;
-      flex-shrink: 0;
-    }
-
-    .link-card:hover .arrow {
-      transform: translateX(3px);
-      color: var(--text);
-    }
-
-    /* ── Footer ── */
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-      animation: fadeUp 0.5s 0.55s ease both;
-    }
-
-    .footer p {
-      font-size: 0.75rem;
-      color: rgba(240,240,245,0.2);
-      letter-spacing: 0.04em;
-    }
-
-    .footer .accent-dot {
-      color: var(--accent);
-      font-size: 1rem;
-      line-height: 0;
-      vertical-align: middle;
-    }
-
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-  </style>
+.footer{
+margin-top:40px;
+text-align:center;
+font-size:.75rem;
+color:rgba(240,240,245,0.3);
+}
+</style>
 </head>
+
 <body>
 
-<main class="container" role="main">
+<main class="container">
 
-  <!-- Avatar -->
-  <div class="avatar-wrap">
-    <div class="avatar-ring"></div>
-    <div class="avatar">SG</div>
-  </div>
+<div class="avatar-wrap">
+<div class="avatar">SG</div>
+</div>
 
-  <!-- Header -->
-  <div class="header">
-    <h1 class="name">SG <span>Baka</span></h1>
-    <p class="bio">Creator &amp; Digital Enthusiast<span class="dot"></span>Sharing ideas across the web</p>
-  </div>
+<div class="header">
+<h1 class="name">SG <span>Baka</span></h1>
+<p class="bio">Creator & Digital Enthusiast • Sharing ideas across the web</p>
+</div>
 
-  <!-- Social Links -->
-  <nav class="links" aria-label="Social media links">
+<nav class="links">
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/sg.baka?igsh=MWxkd2FvNjJqcjllNQ==" target="_blank" rel="noopener noreferrer"
-       class="link-card insta" aria-label="Follow on Instagram">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#f09433"/>
-              <stop offset="25%" stop-color="#e6683c"/>
-              <stop offset="50%" stop-color="#dc2743"/>
-              <stop offset="75%" stop-color="#cc2366"/>
-              <stop offset="100%" stop-color="#bc1888"/>
-            </linearGradient>
-          </defs>
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig)" stroke-width="1.8" fill="none"/>
-          <circle cx="12" cy="12" r="4.5" stroke="url(#ig)" stroke-width="1.8" fill="none"/>
-          <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig)"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Instagram</div>
-        <div class="link-sub">@sgxbaka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+<a href="https://www.instagram.com/sg.baka" target="_blank" class="link-card">
+<div class="icon-wrap">📷</div>
+<div class="link-info">
+<div class="link-label">Instagram</div>
+<div class="link-sub">@sgxbaka</div>
+</div>
+</a>
 
-    <!-- Telegram -->
-    <a href="https://t.me/sg_baka" target="_blank" rel="noopener noreferrer"
-       class="link-card telegram" aria-label="Message on Telegram">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#29b6f6" stroke-width="1.8" fill="none"/>
-          <path d="M8 12l2.5 2.5 5.5-5.5" stroke="#29b6f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M5.5 11.5l12-4.5-4.5 12-2.5-4.5-5-3z" stroke="#29b6f6" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Telegram</div>
-        <div class="link-sub">@sg_baka</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+<a href="https://t.me/sg_baka" target="_blank" class="link-card">
+<div class="icon-wrap">✈️</div>
+<div class="link-info">
+<div class="link-label">Telegram</div>
+<div class="link-sub">@sg_baka</div>
+</div>
+</a>
 
-    <!-- Facebook -->
-    <a href=https://www.facebook.com/sgxleo" target="_blank" rel="noopener noreferrer"
-       class="link-card facebook" aria-label="Connect on Facebook">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#4267B2" stroke-width="1.8" fill="none"/>
-          <path d="M13.5 8H12a1 1 0 00-1 1v2H9v2.5h2V19h2.5v-5.5H15l.5-2.5h-2V9.5a.5.5 0 01.5-.5h1.5V8z" stroke="#4267B2" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Facebook</div>
-        <div class="link-sub">@sgxleo</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+<a href="https://www.facebook.com/sgxleo" target="_blank" class="link-card">
+<div class="icon-wrap">📘</div>
+<div class="link-info">
+<div class="link-label">Facebook</div>
+<div class="link-sub">@sgxleo</div>
+</div>
+</a>
 
-    <!-- Spotify -->
-    <a href="https://open.spotify.com/user/31g6ef4ntjgz6i52rf7nhxzj4o34" target="_blank" rel="noopener noreferrer"
-       class="link-card spotify" aria-label="Listen on Spotify">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="#1ED760" stroke-width="1.8" fill="none"/>
-          <path d="M7.5 14.5c2.5-1 5.5-1 8 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M6.5 12c3-1.2 6.5-1.2 10 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M7.5 9.5c2.8-.8 5.7-.8 8.5 0" stroke="#1ED760" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="link-info">
-        <div class="link-label">Spotify</div>
-        <div class="link-sub">Listen to my playlists</div>
-      </div>
-      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+<a href="https://open.spotify.com" target="_blank" class="link-card">
+<div class="icon-wrap">🎧</div>
+<div class="link-info">
+<div class="link-label">Spotify</div>
+<div class="link-sub">Listen to my playlists</div>
+</div>
+</a>
 
-  </nav>
+</nav>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Made by <span class="accent-dot">&#9679;</span> &copy; 2026 SG Baka</p>
-  </footer>
+<footer class="footer">
+Made by ● © 2026 SG Baka
+</footer>
 
 </main>
-
-<!-- Structured Data (JSON-LD) for SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Your Name",
-  "description": "Creator & Digital Enthusiast — sharing ideas across the web",
-  "url": "https://yourwebsite.com",
-  "sameAs": [
-    "https://instagram.com/yourusername",
-    "https://t.me/yourusername",
-    "https://facebook.com/yourusername",
-    "https://open.spotify.com/user/yourusername"
-  ]
-}
-</script>
 
 </body>
 </html>
